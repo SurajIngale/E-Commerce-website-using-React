@@ -1,0 +1,12 @@
+body{
+  margin: 0;
+}
+.nav{
+  text-decoration: none;
+  color: black;
+  padding: 5px 10px;
+}
+.active{
+  background-color: lightgray;
+  color: red;
+}
