@@ -11,11 +11,14 @@ const Products = () => {
   const [showModal, setShowModal] = useState(false);
   const [showAddModal, setShowAddModal] = useState(false);
   const [newProduct, setNewProduct] = useState({ title: "", price: "", description: "", image: "", category: "" });
-  const { token } = useContext(AuthContext);
+  const { token, isAdmin } = useContext(AuthContext); // Ensure isAdmin is part of your context
 
   useEffect(() => {
     const fetchProducts = async () => {
+      if (!isAdmin) return;
+
       try {
+        console.log("Token:", token); // Debugging: Log the token
         const response = await axios.get("http://localhost:7000/products", {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -26,8 +29,9 @@ const Products = () => {
         console.error("Error fetching products:", error);
       }
     };
+
     fetchProducts();
-  }, [token]);
+  }, [token, isAdmin]);
 
   const handleDelete = async (productId) => {
     try {
@@ -97,6 +101,10 @@ const Products = () => {
       console.error("Error adding product:", error);
     }
   };
+
+  if (!isAdmin) {
+    return <div>Access denied. Admins only.</div>;
+  }
 
   return (
     <div className="container mt-2">

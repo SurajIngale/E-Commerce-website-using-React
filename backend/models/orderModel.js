@@ -1,11 +1,16 @@
 import mongoose from "mongoose";
 
 const orderSchema = mongoose.Schema({
-    userName: String,
-    productName: String,
+    name: String,
     address: String,
-    mobileNumber: Number
-})
+    mobile: Number,
+    paymentMethod : String,
+    product: {
+        title: String,
+        price: Number,
+    },
+    createdAt: {type: Date, default: Date.now},
+});
 const Orders = mongoose.model('orders', orderSchema);
 
 export default Orders;

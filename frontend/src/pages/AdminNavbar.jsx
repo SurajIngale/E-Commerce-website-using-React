@@ -27,6 +27,14 @@ const AdminNavbar = () => {
           </NavLink>
         </li>
         <li>
+          <NavLink
+            className={({ isActive }) => (isActive ? "nav active" : "nav")}
+            to="/admin/orders"
+          >
+            Orders
+          </NavLink>
+        </li>
+        <li>
           <NavLink className="nav" onClick={logout} to="/home">
             Logout
           </NavLink>

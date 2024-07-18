@@ -14,7 +14,8 @@ import AdminRegisterPage from "./pages/AdminRegisterPage";
 import UserRegisterPage from "./userpages/UserRegisterPage";
 import { CartContextProvider } from "./userComponents/cartContext";
 import CartPage from "./userComponents/cartPage";
-import OrderProduct from "./userComponents/OrderProduct";
+import Order from "./userComponents/Order";
+import AdminOrders from "./pages/AdminOrders";
 
 const router = createBrowserRouter([
   {
@@ -40,6 +41,7 @@ const router = createBrowserRouter([
     children: [
       { path: "products", element: <Products /> },
       { path: "users", element: <Users /> },
+      { path: "orders", element: <AdminOrders /> },
     ],
   },
   {
@@ -57,7 +59,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     children: [
-      { path: "orderProduct", element: <OrderProduct/> },
+      { path: "order", element: <Order/> },
     ],
   },
 ]);

@@ -5,25 +5,29 @@ const AuthContext = createContext();
 export const AuthContextProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isAdmin, setIsAdmin] = useState(false);
+  const [token, setToken] = useState(null);
 
   useEffect(() => {
-    const token = localStorage.getItem('jwtToken');
+    const storedToken = localStorage.getItem('jwtToken');
     const isAdminString = localStorage.getItem('isAdmin');
     const isAdminValue = isAdminString === 'true'; // Convert to boolean
-    if (token) {
+    if (storedToken) {
       setIsLoggedIn(true);
       setIsAdmin(isAdminValue);
+      setToken(storedToken);
     } else {
       setIsLoggedIn(false);
       setIsAdmin(false);
+      setToken(null);
     }
   }, []);
 
-  const login = (token, adminStatus) => {
-    localStorage.setItem('jwtToken', token);
+  const login = (newToken, adminStatus) => {
+    localStorage.setItem('jwtToken', newToken);
     localStorage.setItem('isAdmin', adminStatus);
     setIsLoggedIn(true);
-    setIsAdmin(adminStatus === 'true');
+    setIsAdmin(adminStatus === true);
+    setToken(newToken);
   };
 
   const logout = () => {
@@ -31,10 +35,11 @@ export const AuthContextProvider = ({ children }) => {
     localStorage.removeItem('isAdmin');
     setIsLoggedIn(false);
     setIsAdmin(false);
+    setToken(null);
   };
 
   return (
-    <AuthContext.Provider value={{ isLoggedIn, isAdmin, login, logout }}>
+    <AuthContext.Provider value={{ isLoggedIn, isAdmin, token, login, logout }}>
       {children}
     </AuthContext.Provider>
   );

@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import "../assets/Usercss/card.css";
 import CartContext from "./cartContext";
-import { NavLink } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -28,9 +28,11 @@ const ProductCard = ({ name, review, desc, price, image }) => {
     addToCart({ name, review, desc, price, image }, quantity);
   };
 
-  const handleBuy = () => {
+  const navigate = useNavigate();
 
-  }
+  const handleBuyClick = () => {
+    navigate("/order", { state: { product: {name, price } } });
+  };
 
   return (
     <div className="card">
@@ -52,7 +54,7 @@ const ProductCard = ({ name, review, desc, price, image }) => {
         <button onClick={incrementQtyHandler}>+</button>
       </div>
       <div className="card-button">
-        <NavLink className="buy" to='/buyProduct' onClick={handleBuy}>Buy</NavLink>
+        <button className="buy" onClick={handleBuyClick}>Buy</button>
         <button className="addCart" onClick={handleAddToCart}>
           Add To Cart
         </button>
