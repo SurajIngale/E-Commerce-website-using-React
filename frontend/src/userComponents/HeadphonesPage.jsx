@@ -3,7 +3,7 @@ import axios from "axios";
 import "../assets/Usercss/card.css";
 import ProductCard from "./ProductCard";
 
-const ProductContainer = () => {
+const HeadPhonePage = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -19,9 +19,11 @@ const ProductContainer = () => {
     fetchProducts();
   }, []);
 
+  const headphonesProducts = products.filter(product => product.category === "Headphones");
+
   return (
     <div className="product-container">
-      {products.map((product, index) => (
+      {headphonesProducts.map((product, index) => (
         <ProductCard
           key={index}
           name={product.title}
@@ -35,4 +37,4 @@ const ProductContainer = () => {
   );
 };
 
-export default ProductContainer;
+export default HeadPhonePage;

@@ -48,7 +48,7 @@ const AdminOrders = () => {
               <th>Address</th>
               <th>Mobile</th>
               <th>Payment Method</th>
-              <th>Product Title</th>
+              <th>Product Name</th>
               <th>Product Price</th>
               <th>Order Date</th>
             </tr>
@@ -60,7 +60,7 @@ const AdminOrders = () => {
                 <td>{order.address}</td>
                 <td>{order.mobile}</td>
                 <td>{order.paymentMethod}</td>
-                <td>{order.product.title}</td>
+                <td>{order.product.productName}</td>
                 <td>{order.product.price}</td>
                 <td>{new Date(order.createdAt).toLocaleDateString()}</td>
               </tr>

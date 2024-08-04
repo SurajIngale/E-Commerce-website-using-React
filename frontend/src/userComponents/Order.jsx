@@ -4,15 +4,21 @@ import { useNavigate } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
 const Order = () => {
+
+  const location = useLocation();
+  const { product } = location.state;
+  console.log(product);
+
   const [orderDetails, setOrderDetails] = useState({
     name: "",
     address: "",
     mobile: "",
     paymentMethod: "Credit Card",
+    product: {
+      productName: product.name, 
+      price: product.price,
+  },
   });
-
-  const location = useLocation();
-  const { product } = location.state;
 
   const navigate = useNavigate();
 
@@ -23,11 +29,11 @@ const Order = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const orderData = { ...orderDetails, product };
+    const orderData = { ...orderDetails };
     try {
       await axios.post("http://localhost:7000/orders/addOrder", orderData);
       alert("Order placed successfully!");
-      navigate("/home");
+      navigate("/user/home");
     } catch (error) {
       console.error("Error placing order:", error);
     }

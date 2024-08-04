@@ -2,26 +2,26 @@
   display: flex;
   gap: 15px;
   padding-left: 10px;
-  background-color: antiquewhite;
+  background-color: #020202;
   padding: 10px;
   font-weight: bold;
 }
+.logo{
+  color: rgb(236, 237, 238);
+}
 .navLinks {
+  color: white;
   display: flex;
   align-items: center;
   gap: 15px;
   list-style: none;
   gap: 50px;
 }
-.navItemRight{
-  background-color: rgb(51, 38, 21);
-  border: 1px solid black;
-  margin-left: 980px;
-}
 p{
   font-size: 0.8rem;
   margin: 0%;
 }
-h1{
-  margin-left: 50px;
+h3{
+  color: white;
+  margin-left: 20px;
 }

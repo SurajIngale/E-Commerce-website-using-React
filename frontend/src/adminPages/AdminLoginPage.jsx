@@ -49,7 +49,8 @@ export default function AdminLoginPage() {
   };
 
   return (
-    <form
+   <div className="loginPages">
+     <form
       onSubmit={handleSubmit}
       className="container w-50 mt-5 p-5 text-white bg-dark"
     >
@@ -98,5 +99,6 @@ export default function AdminLoginPage() {
         <button className="btn btn-primary">Login</button>
       </div>
     </form>
+   </div>
   );
 }

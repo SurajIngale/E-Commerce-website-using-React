@@ -37,9 +37,9 @@ const ProductCard = ({ name, review, desc, price, image }) => {
   return (
     <div className="card">
       <img src={image} alt="" className="card-img" />
-      <h3>{name}</h3>
+      <h4 className="mb-0">{name}</h4>
       <p>{review}</p>
-      <p className="rs">₹ {price}</p>
+      <p className="rs m-0 mb-2">₹ {price}</p>
       <button className="desc" onClick={displayDescription}>
         Description ▼
       </button>

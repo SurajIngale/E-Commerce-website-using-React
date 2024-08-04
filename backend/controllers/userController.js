@@ -1,6 +1,6 @@
 import Users from "../models/userModel.js";
 
-export const getAllProducts = async (req, res) => {
+export const getAllUsers = async (req, res) => {
     try {
         let users = await Users.find({});
         if(users){

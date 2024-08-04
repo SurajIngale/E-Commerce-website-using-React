@@ -1,28 +1,35 @@
-import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { RouterProvider, createBrowserRouter, Navigate } from "react-router-dom";
 import "./App.css";
-import HomePage from "./pages/HomePage";
-import RootLayout from "./pages/RootLayout";
-import AdminLayout from "./pages/AdminLayout";
+import HomePage from "./adminPages/HomePage";
+import RootLayout from "./adminPages/RootLayout";
+import AdminLayout from "./adminPages/AdminLayout";
 import { AuthContextProvider } from "./authContext";
 import ProtectedRoute from "./protectedRoute";
-import Products from "./pages/Products";
-import Users from "./pages/Users";
+import Products from "./adminPages/Products";
+import Users from "./adminPages/Users";
 import UserLoginPage from "./userpages/UserLoginPage";
 import UserHomePage from "./userpages/UserHomePage";
-import AdminLoginPage from "./pages/AdminLoginPage";
-import AdminRegisterPage from "./pages/AdminRegisterPage";
+import AdminLoginPage from "./adminPages/AdminLoginPage";
+import AdminRegisterPage from "./adminPages/AdminRegisterPage";
 import UserRegisterPage from "./userpages/UserRegisterPage";
 import { CartContextProvider } from "./userComponents/cartContext";
 import CartPage from "./userComponents/cartPage";
 import Order from "./userComponents/Order";
-import AdminOrders from "./pages/AdminOrders";
+import AdminOrders from "./adminPages/AdminOrders";
+import SmartPhonePage from "./userComponents/smartphonePage";
+import TabPage from "./userComponents/tabPage";
+import Header from "./userComponents/Header";
+import LaptopPage from "./userComponents/LaptopPage";
+import TvPage from "./userComponents/tabPage";
+import HeadPhonePage from "./userComponents/HeadphonesPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
     children: [
-      { index: true, path: "/home", element: <HomePage /> },
+      { index: true, element: <Navigate to ="/home"/>},
+      { path: "/home", element: <HomePage /> },
       { path: "/admin/login", element: <AdminLoginPage /> },
       { path: "/user/login", element: <UserLoginPage /> },
       { path: "/admin/register", element: <AdminRegisterPage /> },
@@ -48,12 +55,17 @@ const router = createBrowserRouter([
     path: "user",
     children: [
       { path: "home", element: <UserHomePage /> },
+      { path: "smartphone", element: <> <Header/> <SmartPhonePage/> </>  },
+      { path: "tabs", element: <><Header/> <TabPage/></> },
+      { path: "laptops", element: <> <Header/> <LaptopPage/></> },
+      { path: "tv", element: <> <Header/> <TvPage/></> },
+      { path: "headphones", element: <> <Header/> <HeadPhonePage/></> },
     ],
   },
   {
     path: "/",
     children: [
-      { path: "cart", element: <CartPage /> },
+      { path: "cart", element: <><Header/> <CartPage /> </> },
     ],
   },
   {

@@ -5,6 +5,6 @@ import authMiddleware, { verifyAdmin } from '../authMiddleware.js';
 const route = express.Router();
 
 route.post('/addOrder', addOrder);
-route.post('/getAllOrders', getAllOrders)
+route.get('/getAllOrders',authMiddleware, verifyAdmin, getAllOrders)
 
 export default route;

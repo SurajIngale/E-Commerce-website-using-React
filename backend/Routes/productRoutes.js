@@ -8,5 +8,6 @@ route.get('/',authMiddleware, verifyAdmin, getAllProducts);
 route.post('/addProducts', authMiddleware, verifyAdmin, addProducts)
 route.put('/:id', authMiddleware, verifyAdmin, updateProduct);
 route.delete('/:id', authMiddleware, verifyAdmin,deleteProduct);
+route.get('/userProducts', getAllProducts);
 
 export default route;

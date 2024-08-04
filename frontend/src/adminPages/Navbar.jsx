@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <nav className={classes.navbar}>
-      <h2>LOGO</h2>
+      <h3>GadgetHub</h3>
       <ul className={classes.navLinks}>
           <>
           <li>

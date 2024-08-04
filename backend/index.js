@@ -154,3 +154,5 @@ app.delete("/users/:id", authMiddleware, verifyAdmin, async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port: ${PORT}`);
 });
+
+

@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import { useContext } from "react";
 import AuthContext from "../authContext";
 import classes from "../assets/css/navbar.module.css";
+import "../assets/css/navbar.module.css"
 
 const AdminNavbar = () => {
   const { logout } = useContext(AuthContext);

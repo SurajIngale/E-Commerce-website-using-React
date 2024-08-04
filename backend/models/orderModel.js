@@ -6,7 +6,7 @@ const orderSchema = mongoose.Schema({
     mobile: Number,
     paymentMethod : String,
     product: {
-        title: String,
+        productName: { type: String}, 
         price: Number,
     },
     createdAt: {type: Date, default: Date.now},
