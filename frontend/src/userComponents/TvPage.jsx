@@ -3,7 +3,7 @@ import axios from "axios";
 import "../assets/Usercss/card.css";
 import ProductCard from "./ProductCard";
 
-const SmartPhonePage = () => {
+const TvPage = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -37,4 +37,4 @@ const SmartPhonePage = () => {
   );
 };
 
-export default SmartPhonePage;
+export default TvPage;

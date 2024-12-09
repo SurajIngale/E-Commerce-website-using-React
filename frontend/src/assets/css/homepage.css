@@ -1,3 +1,7 @@
+.homepage{
+  background-color: #191919 ;
+}
+
 .homepage .carousel-item img {
     cursor: pointer;
   }
@@ -8,7 +12,8 @@
   }
   
   .info-section {
-    background-color: #f9f9f9;
+    color: white;
+    background-color: #191919;
     padding: 40px 0;
   }
   
@@ -21,11 +26,11 @@
   }
   
   .info-card:hover {
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
   }
   
   .newsletter-section {
-    background-color: #007bff;
+    background-color: #1d1d1d;
     color: white;
   }
   
@@ -39,4 +44,48 @@
     padding: 10px;
     margin-bottom: 10px;
   }
+  
+  #product-types {
+    display: flex;
+    max-width: min-content;
+    margin: auto;
+  }
+  #product-types img{
+    max-width: 120px;
+    margin: 5px;
+  }
+  #products{
+    color: white;
+  }
+  #product-types, #products, #info-section {
+    padding-top: 80px; /* Adjust based on navbar height */
+    color: white !important;
+  }
+  
+
+  .navbar {
+    height: 70px;
+    font-size: large;
+    font-weight: bold;
+    background-color: #191919; /* Semi-transparent white */
+    transition: background-color 0.3s ease-in-out; /* Smooth transition for any color changes */
+  }
+  
+  .navbar.fixed-top.scrolled {
+    background-color: rgb(28, 27, 27); /* Solid white when scrolled */
+  }
+  
+  .navbar .nav-link {
+    color: rgb(255, 255, 255); /* Default link color */
+  }
+  
+  .navbar .nav-link.active {
+    color: red; /* Active link color */
+    border-bottom: 2px solid red;
+  }
+  
+  .navbar .nav-link:hover {
+    color: red; /* Hover effect */
+  }
+  
   

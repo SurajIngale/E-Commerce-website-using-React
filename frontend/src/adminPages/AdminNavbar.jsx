@@ -9,7 +9,7 @@ const AdminNavbar = () => {
 
   return (
     <nav className={classes.navbar}>
-      <h2>Admin Panel</h2>
+      <h2 className="text-white">Admin Panel</h2>
       <ul className={classes.navLinks}>
         <li>
           <NavLink

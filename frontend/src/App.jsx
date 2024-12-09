@@ -20,8 +20,11 @@ import SmartPhonePage from "./userComponents/smartphonePage";
 import TabPage from "./userComponents/tabPage";
 import Header from "./userComponents/Header";
 import LaptopPage from "./userComponents/LaptopPage";
-import TvPage from "./userComponents/tabPage";
+import TvPage from "./userComponents/TvPage";
 import HeadPhonePage from "./userComponents/HeadphonesPage";
+import WatchesPage from "./userComponents/WatchesPage";
+import UserProfile from "./userpages/UserProfile";
+import ProductPage from "./userComponents/productPage";
 
 const router = createBrowserRouter([
   {
@@ -55,17 +58,25 @@ const router = createBrowserRouter([
     path: "user",
     children: [
       { path: "home", element: <UserHomePage /> },
+      { path: "user-profile", element: <UserProfile /> },
       { path: "smartphone", element: <> <Header/> <SmartPhonePage/> </>  },
       { path: "tabs", element: <><Header/> <TabPage/></> },
       { path: "laptops", element: <> <Header/> <LaptopPage/></> },
       { path: "tv", element: <> <Header/> <TvPage/></> },
       { path: "headphones", element: <> <Header/> <HeadPhonePage/></> },
+      { path: "watches", element: <> <Header/> <WatchesPage/></> },
     ],
   },
   {
     path: "/",
     children: [
       { path: "cart", element: <><Header/> <CartPage /> </> },
+    ],
+  },
+  {
+    path: "/",
+    children: [
+      { path: "product-page", element: <><Header/> <ProductPage /> </> },
     ],
   },
   {

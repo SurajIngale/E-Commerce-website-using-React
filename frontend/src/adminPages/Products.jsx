@@ -108,11 +108,11 @@ const Products = () => {
 
   return (
     <div className="container mt-2">
-      <Button className="mb-3" onClick={handleAddClick}>
+      <Button className="mb-3 btn btn-dark" onClick={handleAddClick}>
         Add Product
       </Button>
 
-      <table className="table">
+      <table className="table ">
         <thead>
           <tr>
             <th>Sr. No</th>

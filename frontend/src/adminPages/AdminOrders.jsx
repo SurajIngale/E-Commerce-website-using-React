@@ -12,11 +12,14 @@ const AdminOrders = () => {
       setLoading(true);
       try {
         console.log(token);
-        const response = await axios.get("http://localhost:7000/orders/getAllOrders", {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
+        const response = await axios.get(
+          "http://localhost:7000/orders/getAllOrders",
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         setOrders(response.data);
       } catch (error) {
         console.error("Error fetching orders:", error);
@@ -28,7 +31,6 @@ const AdminOrders = () => {
     if (isAdmin) {
       fetchOrders();
     }
-
   }, [token, isAdmin]);
 
   if (!isAdmin) {
@@ -41,7 +43,7 @@ const AdminOrders = () => {
       {loading ? (
         <p>Loading...</p>
       ) : (
-        <table className="table">
+        <table className="table table-dark">
           <thead>
             <tr>
               <th>Name</th>

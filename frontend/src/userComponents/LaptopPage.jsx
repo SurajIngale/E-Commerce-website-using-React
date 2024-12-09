@@ -22,7 +22,7 @@ const LaptopPage = () => {
     const laptopProducts = products.filter(product => product.category === "Laptop");
 
     return(
-        <div className="product=container">
+        <div className="product-container">
             {laptopProducts.map ((product, index ) => (
                 <ProductCard
                 key={index}

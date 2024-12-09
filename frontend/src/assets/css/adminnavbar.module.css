@@ -6,7 +6,9 @@
     background-color: #333;
     color: white;
   }
-  
+.adminPanel{
+  color: white;
+}
   .navLinks {
     list-style: none;
     display: flex;
@@ -43,7 +45,4 @@
     transition: background-color 0.3s;
   }
   
-  button.nav:hover {
-    background-color: #444;
-  }
   

@@ -18,10 +18,14 @@ const UserLoginPage = () => {
         password: passwordRef.current.value,
       });
 
+      console.log("User data", response.data.user);
+      
+
       if (response.status === 200) {
         const token = response.data.token;
         const isAdmin = response.data.isAdmin;
-        login(token, isAdmin);
+        const user = response.data.user;
+        login(token, isAdmin, user);
         navigate('/user/home');
       }
     } catch (error) {

@@ -71,7 +71,7 @@ const Users = () => {
 
   return (
     <div className="container mt-2">
-      <table className="table">
+      <table className="table table-dark">
         <thead>
           <tr>
             <th>Sr. No</th>

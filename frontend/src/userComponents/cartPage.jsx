@@ -7,11 +7,11 @@ const CartPage = () => {
 
   return (
     <div className="container mt-5">
-      <h2>Shopping Cart</h2>
+      <h2 className="text-white">Shopping Cart</h2>
       {cart.length === 0 ? (
-        <p>Your cart is empty.</p>
+        <p className="text-white text-center">Your cart is empty.</p>
       ) : (
-        <table className="table">
+        <table className="table table-dark">
           <thead>
             <tr>
               <th>Image</th>

@@ -49,3 +49,31 @@ li {
   font-weight: bold;
   padding: 2px 4px ;
 }
+.search-container {
+  width: 100%;
+  margin-right: 380px;
+  
+}
+
+.search-bar {
+  width: 300px;
+  padding: 10px;
+  border: 2px solid rgba(255, 255, 255, 0.5); /* Light border with transparency */
+  border-radius: 25px;
+  background-color: rgba(255, 255, 255, 0.1); /* Transparent background */
+  color: white;
+  font-size: 16px;
+  backdrop-filter: blur(10px); /* Optional: adds a blur effect behind the input */
+  outline: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-bar::placeholder {
+  color: rgba(255, 255, 255, 0.7); /* Placeholder text color */
+}
+
+.search-bar:focus {
+  background-color: rgba(255, 255, 255, 0.2); /* Slightly less transparent on focus */
+  border-color: rgba(255, 255, 255, 0.7);
+}
+

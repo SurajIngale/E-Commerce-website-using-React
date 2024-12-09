@@ -2,7 +2,7 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import ProductCard from "./ProductCard";
 
-const TvPage = () => {
+const TabPage = () => {
     const [products, setProducts] = useState([])
         useEffect (() => {
             const fetchProducts = async () => {
@@ -17,7 +17,7 @@ const TvPage = () => {
             fetchProducts();
         }, []);
 
-        const tabProducts = products.filter(product => product.category === "Tv");
+        const tabProducts = products.filter(product => product.category === "Tablets");
 
         return(
             <div className="product-container">
@@ -35,4 +35,4 @@ const TvPage = () => {
         );
 };
 
-export default TvPage;
+export default TabPage;

@@ -3,7 +3,7 @@ import connectDb from "./db.js";
 import cors from "cors";
 import Users from "./models/userModel.js";
 import jwt from "jsonwebtoken";
-import bcrypt from 'bcrypt';
+import bcrypt from "bcrypt";
 import productRoutes from "./Routes/productRoutes.js";
 import orderRoutes from "./Routes/orderRoutes.js";
 import authMiddleware, { verifyAdmin } from "./authMiddleware.js";
@@ -38,14 +38,15 @@ app.post("/admin/register", async (req, res) => {
     await newUser.save();
 
     console.log(`Admin registered with email: ${email}, password: ${password}`);
-    
-    res.status(201).json({ message: "Admin registered successfully", user: newUser });
+
+    res
+      .status(201)
+      .json({ message: "Admin registered successfully", user: newUser });
   } catch (error) {
     console.error("Error registering admin:", error);
     res.status(500).json({ message: "Internal server error." });
   }
 });
-
 
 // Admin login
 app.post("/admin/login", async (req, res) => {
@@ -90,7 +91,6 @@ app.post("/admin/login", async (req, res) => {
   }
 });
 
-
 // User login
 app.post("/user/login", async (req, res) => {
   const { email, password } = req.body;
@@ -111,16 +111,16 @@ app.post("/user/login", async (req, res) => {
 
     const isAdmin = user.isAdmin;
     const token = jwt.sign({ email, isAdmin }, KEY, { expiresIn: "1h" });
-    res.json({ token, isAdmin });
+    res.json({ token, isAdmin, user });
   } catch (error) {
     console.error("Error logging in:", error);
     res.status(500).json({ message: "Internal server error." });
   }
 });
 
-app.use('/products', productRoutes);
+app.use("/products", productRoutes);
 
-app.use('/orders', orderRoutes);
+app.use("/orders", orderRoutes);
 
 app.get("/users", authMiddleware, verifyAdmin, async (req, res) => {
   try {
@@ -134,7 +134,9 @@ app.get("/users", authMiddleware, verifyAdmin, async (req, res) => {
 app.put("/users/:id", authMiddleware, verifyAdmin, async (req, res) => {
   const { id } = req.params;
   try {
-    const updatedUser = await Users.findByIdAndUpdate(id, req.body, { new: true });
+    const updatedUser = await Users.findByIdAndUpdate(id, req.body, {
+      new: true,
+    });
     res.status(200).json(updatedUser);
   } catch (error) {
     res.status(500).json({ message: "Internal server error." });
@@ -154,5 +156,3 @@ app.delete("/users/:id", authMiddleware, verifyAdmin, async (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server running on port: ${PORT}`);
 });
-
-

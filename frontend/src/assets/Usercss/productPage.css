@@ -4,10 +4,10 @@
     flex-wrap: wrap;
     justify-content: space-around; /* Adjust as needed */
   }
-  .card h3{
+  .product h3{
     margin-bottom: 0%;
   }
-  .card {
+  .product {
     width: 300px; /* Adjust card width as needed */
     margin: 20px; /* Adjust margin between cards as needed */
     padding: 20px;
@@ -18,7 +18,7 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   }
   
-  .card-img {
+  .product-img  {
     width: 100%;
     height: auto;
     border-radius: 5px;

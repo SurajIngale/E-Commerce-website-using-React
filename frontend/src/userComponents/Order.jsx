@@ -40,7 +40,7 @@ const Order = () => {
   };
 
   return (
-    <div className="container mt-5">
+    <div className="container mt-5 text-white">
       <h2>Order a {product.name}</h2>
       <form onSubmit={handleSubmit}>
         <div className="form-group">

@@ -1,5 +1,6 @@
 body{
   margin: 0;
+  background-color: #191919;
 }
 .nav{
   text-decoration: none;
@@ -12,4 +13,7 @@ body{
 }
 h3{
   color: white;
+}
+#adminProductList{
+  background-color: #191919;
 }
